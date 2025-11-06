@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Mail, Linkedin, Github, MapPin, Award, Briefcase, GraduationCap, Code, ChevronDown } from 'lucide-react';
+import React from 'react';
+import { Mail, Linkedin, Github, MapPin, Award, Briefcase, GraduationCap, Code, ChevronDown, ExternalLink } from 'lucide-react';
 
 export default function Portfolio() {
   const skills = {
@@ -8,6 +8,22 @@ export default function Portfolio() {
     'Web': ['FastAPI', 'Material-UI', 'jsPsych', 'React'],
     'Tools': ['Git', 'Docker', 'GCP', 'VS Code', 'pandas', 'NumPy']
   };
+
+  const projects = [
+    {
+      title: 'ML-Driven Places Attribute Conflation',
+      org: 'Overture Maps / Project Terraforma',
+      tech: ['Python', 'Machine Learning', 'Geospatial Data', 'Data Processing'],
+      description: 'Developing machine learning models to conflate place attributes from multiple data sources, resolving conflicts and improving data quality for the Overture Maps Foundation.',
+      highlights: [
+        'Building ML models for attribute conflict resolution across geospatial datasets',
+        'Processing and analyzing large-scale place attribution data',
+        'Contributing to open geospatial data infrastructure'
+      ],
+      github: 'https://github.com/project-terraforma/ML-Attacking-Places-Attribution-Conflation',
+      status: 'In Progress'
+    }
+  ];
 
   const experience = [
     {
@@ -102,9 +118,9 @@ export default function Portfolio() {
               depth and creative problem-solving to every project.
             </p>
             <p>
-              My experience spans developing web-based experiments, exploring generative AI, and mentoring fellow students. 
-              I'm particularly interested in the intersection of artificial intelligence and practical applications, from 
-              healthcare to creative systems.
+              Currently, I'm working on machine learning models for geospatial data conflation with Overture Maps, tackling 
+              real-world problems in data quality and attribute resolution. My experience spans developing web-based experiments, 
+              exploring generative AI, and mentoring fellow students.
             </p>
             <div className="grid sm:grid-cols-3 gap-4 pt-6">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-xl">
@@ -120,6 +136,69 @@ export default function Portfolio() {
                 <div className="text-sm text-gray-600">Graduation Year</div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section className="bg-white rounded-2xl shadow-lg p-8 sm:p-12">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center">
+              <Code size={24} className="text-white" />
+            </div>
+            <h2 className="text-3xl font-bold text-gray-800">Featured Projects</h2>
+          </div>
+          <div className="space-y-6">
+            {projects.map((project, idx) => (
+              <div key={idx} className="border-2 border-blue-100 rounded-xl p-6 hover:border-blue-300 transition-colors">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <h3 className="text-2xl font-bold text-gray-800">{project.title}</h3>
+                      {project.status && (
+                        <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">
+                          {project.status}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-indigo-600 font-medium">{project.org}</p>
+                  </div>
+                  {project.github && (
+                    <a 
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-lg transition-colors text-sm font-medium"
+                    >
+                      <Github size={16} />
+                      <span>View Code</span>
+                      <ExternalLink size={14} />
+                    </a>
+                  )}
+                </div>
+                
+                <p className="text-gray-700 mb-4 leading-relaxed">{project.description}</p>
+                
+                <div className="mb-4">
+                  <h4 className="text-sm font-semibold text-gray-600 mb-2">Key Highlights:</h4>
+                  <ul className="space-y-2">
+                    {project.highlights.map((highlight, hidx) => (
+                      <li key={hidx} className="text-gray-700 flex gap-2 text-sm">
+                        <span className="text-blue-500 mt-1">•</span>
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map(tech => (
+                    <span key={tech} className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -188,13 +267,13 @@ export default function Portfolio() {
             <div>
               <h3 className="text-2xl font-bold">University of California, Santa Cruz</h3>
               <p className="text-blue-100 text-lg">Bachelor of Science in Computer Science</p>
-              <p className="text-blue-200">September 2022 - June 2026</p>
+              <p className="text-blue-200">September 2022 - June 2026 | GPA: 3.7</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 mt-4">
               <p className="text-sm text-blue-100 mb-2">Relevant Coursework:</p>
               <div className="flex flex-wrap gap-2">
                 {['Artificial Intelligence', 'AI for Health', 'Data Structures & Algorithms', 'Computer Systems Design', 
-                  'Probability Theory', 'Computer Architecture', 'Algorithm Analysis'].map(course => (
+                  'Probability Theory', 'Computer Architecture', 'Algorithm Analysis', 'Cryptography'].map(course => (
                   <span key={course} className="px-3 py-1 bg-white/20 rounded-full text-sm">
                     {course}
                   </span>
