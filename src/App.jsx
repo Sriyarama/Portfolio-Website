@@ -76,11 +76,11 @@ export default function Portfolio() {
                 <Mail size={20} />
                 <span>Email</span>
               </a>
-              <a href="https://linkedin.com/in/sriya-ramachandruni" className="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-6 py-3 rounded-full transition-all backdrop-blur-sm">
+              <a href="www.linkedin.com/in/sriya-ramachandruni-341b57225" className="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-6 py-3 rounded-full transition-all backdrop-blur-sm">
                 <Linkedin size={20} />
                 <span>LinkedIn</span>
               </a>
-              <a href="https://github.com/sriya-ramachandruni" className="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-6 py-3 rounded-full transition-all backdrop-blur-sm">
+              <a href="https://github.com/Sriyarama" className="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-6 py-3 rounded-full transition-all backdrop-blur-sm">
                 <Github size={20} />
                 <span>GitHub</span>
               </a>
